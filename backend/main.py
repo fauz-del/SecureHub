@@ -6,7 +6,7 @@ from routes import auth, records, behavior
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="SecureHub API")
+app = FastAPI(title="SecureHub API", redirect_slashes=False)
 
 app.add_middleware(
     CORSMiddleware,
@@ -19,7 +19,6 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(records.router)
 app.include_router(behavior.router)
-
 
 @app.get("/health")
 def health():
