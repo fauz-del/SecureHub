@@ -1,7 +1,7 @@
 import client from './client'
 
 export const getRecords = async (page = 1, limit = 20) => {
-  const res = await client.get(`/records?page=${page}&limit=${limit}`)
+  const res = await client.get(`/records/?page=${page}&limit=${limit}`)
   return res.data
 }
 
@@ -11,7 +11,7 @@ export const getStats = async () => {
 }
 
 export const createRecord = async (data: any) => {
-  const res = await client.post('/records', data)
+  const res = await client.post('/records/', data)
   return res.data
 }
 
